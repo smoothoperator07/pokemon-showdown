@@ -11,7 +11,7 @@ export class Economy {
   private currencyName: string;
   private currencyKey: string = '__global_currency__';
 
-  constructor(defaultBalance: number = 0, currencyName: string = 'coins') {
+  constructor(defaultBalance: number = 0, currencyName: string = 'Pokèdollars') {
     this.defaultBalance = defaultBalance;
     this.currencyName = currencyName;
     this.initStorage();
