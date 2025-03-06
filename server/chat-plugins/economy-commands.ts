@@ -11,6 +11,7 @@ export const commands: { [command: string]: any } = {
   // Top-level command: /balance (shows caller's balance)
   async balance(target: string, room: any, user: any) {
     try {
+		 this.checkBroadcast();
       const balance = await economy.getBalance(user.userid);
       const currency = economy.getCurrencyName();
       this.sendReply(`Your current balance is ${balance} ${currency}.`);
@@ -39,7 +40,7 @@ export const commands: { [command: string]: any } = {
     // /eco give [target user] [amount]
     async give(target: string, room: any, user: any) {
       try {
-        this.checkCan('leader');
+        this.checkCan('bypassall');
       } catch (e) {
         return this.sendReply("Permission denied.");
       }
@@ -64,7 +65,7 @@ export const commands: { [command: string]: any } = {
     // /eco take [target user] [amount]
     async take(target: string, room: any, user: any) {
       try {
-        this.checkCan('leader');
+        this.checkCan('bypassall');
       } catch (e) {
         return this.sendReply("Permission denied.");
       }
@@ -110,7 +111,7 @@ export const commands: { [command: string]: any } = {
     // /eco deleteuser [target user]
     async deleteuser(target: string, room: any, user: any) {
       try {
-        this.checkCan('leader');
+        this.checkCan('bypassall');
       } catch (e) {
         return this.sendReply("Permission denied.");
       }
@@ -129,7 +130,7 @@ export const commands: { [command: string]: any } = {
     // /eco cleardata - Delete all economy data.
     async cleardata(target: string, room: any, user: any) {
       try {
-        this.checkCan('leader');
+        this.checkCan('bypassall');
       } catch (e) {
         return this.sendReply("Permission denied.");
       }
@@ -144,7 +145,7 @@ export const commands: { [command: string]: any } = {
     // /eco setcurrency [new currency name]
     async setcurrency(target: string, room: any, user: any) {
       try {
-        this.checkCan('leader');
+        this.checkCan('bypassall');
       } catch (e) {
         return this.sendReply("Permission denied.");
       }
