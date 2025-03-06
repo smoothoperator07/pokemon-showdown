@@ -1,4 +1,4 @@
-import { Economy } from '../lib/economy';
+import { Economy } from '../../lib/economy';
 
 const economy = new Economy(); // Defaults: 10 balance, "Pokèdollars" as currency
 
